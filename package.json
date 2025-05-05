@@ -1,11 +1,44 @@
 {
   "name": "@jhgaylor/a2a-sdk",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "format": "prettier --write 'src/**/*.ts'",
+    "format:check": "prettier --check 'src/**/*.ts'",
+    "clean": "rimraf dist",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "test": "npm run typecheck",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "author": "",
   "license": "Apache-2.0",
-  "description": ""
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhgaylor/typescript-a2a-sdk.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/jhgaylor/typescript-a2a-sdk/issues"
+  },
+  "homepage": "https://github.com/jhgaylor/typescript-a2a-sdk#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.3.1",
+    "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.1"
+  },
+  "type": "module",
+  "dependencies": {
+    "@types/node": "^22.15.3",
+    "a2a-schema": "^1.0.1"
+  }
 }
